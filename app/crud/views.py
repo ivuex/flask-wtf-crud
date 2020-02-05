@@ -15,7 +15,7 @@ def index():
     return render_template('index.html')
 
 
-@crud.route('/basic', methods=['GET', 'POST'])
+@crud.route('/crud/basic', methods=['GET', 'POST'])
 def basic():
     add_user_form = AddUserForm(prefix='add_user')
     delete_user_form = DeleteUserForm(prefix='delete_user')
@@ -43,7 +43,7 @@ def basic():
     return render_template('basic.html', users=users, addUserForm=add_user_form,
                            deleteUserForm=delete_user_form)
 
-@crud.route('/basic-edit/<user_id>', methods=['GET', 'POST'])
+@crud.route('/crud/basic-edit/<user_id>', methods=['GET', 'POST'])
 def user_edit(user_id):
     user = User.query.get_or_404(user_id)
     edit_user_form = EditUserForm(prefix='edit_user', obj=user)

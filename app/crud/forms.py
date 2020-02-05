@@ -11,7 +11,8 @@ from ..models import User
 
 class AddUserForm(Form):
     username = StringField(u'用户名', validators=[DataRequired(), Length(1, 64, message=u'姓名长度要在1和64之间'),
-                       Regexp(ur'^[\u4E00-\u9FFF]+$', flags=0, message=u'用户名必须为中文')])
+                       Regexp(r'^[\u4E00-\u9FFF]+$', flags=0, message=u'用户名必须为中文')])
+                       #Regexp(ur'^[\u4E00-\u9FFF]+$', flags=0, message=u'用户名必须为中文')])
     email = StringField(u'邮箱', validators=[DataRequired(), Length(6, 64, message=u'邮件长度要在6和64之间'),
                         Email(message=u'邮件格式不正确！')])
     role = SelectField(u'权限', choices=[(u'True', u'管理员'), (u'False', u'一般用户') ])
@@ -33,7 +34,8 @@ class DeleteUserForm(Form):
 
 class EditUserForm(Form):
     username = StringField(u'用户名', validators=[DataRequired(), Length(1, 64, message=u'姓名长度要在1和64之间'),
-                       Regexp(ur'^[\u4E00-\u9FFF]+$', flags=0, message=u'用户名必须为中文')])
+                       Regexp(r'^[\u4E00-\u9FFF]+$', flags=0, message=u'用户名必须为中文')])
+                       #Regexp(ur'^[\u4E00-\u9FFF]+$', flags=0, message=u'用户名必须为中文')])
     email = StringField(u'邮箱', validators=[DataRequired(), Length(6, 64, message=u'邮件长度要在6和64之间'),
                         Email(message=u'邮件格式不正确！')])
     role = SelectField(u'权限', choices=[(u'True', u'管理员'), (u'False', u'一般用户') ])
